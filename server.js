@@ -7,7 +7,10 @@ console.log("🔍 Using Mongo URI:", process.env.MONGO_URI); // ✅ Check loaded
 
 const app = express();
 const PORT = process.env.PORT || 5000;
-const allowedOrigins = ["https://valkyrriemeds.com"];
+const allowedOrigins = [
+  "http://localhost:3000", // for local development
+  "https://valkyrriemeds.com" // your production frontend
+];
 
 app.use(cors({
   origin: allowedOrigins,
