@@ -19,7 +19,7 @@ const enrollmentSchema = new mongoose.Schema({
 
 const SoftSkillsEnrollment = mongoose.model('SoftSkillsEnrollment', enrollmentSchema);
 
-router.post('/api/enroll-softskills', async (req, res) => {
+router.post('/enroll-softskills', async (req, res) => {
   try {
     const enrollment = new SoftSkillsEnrollment(req.body);
     await enrollment.save();

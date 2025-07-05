@@ -35,7 +35,7 @@ router.post('/register', async (req, res) => {
     const verificationToken = jwt.sign({ id: user._id }, JWT_SECRET, { expiresIn: '1d' });
 
     // ✅ Send verification email
-    const verificationLink = `http://localhost:5000/api/auth/verify/${verificationToken}`;
+    const verificationLink = `https://valkyrriemeds-backend-1.onrender.com/api/auth/verify/${verificationToken}`;
     await sendVerificationEmail(email, verificationLink);
 
     res.status(201).json({

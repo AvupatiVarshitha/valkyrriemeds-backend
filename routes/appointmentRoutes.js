@@ -12,13 +12,15 @@ const upload = multer({ storage });
 
 // POST route
 router.post('/register', upload.single('collegeId'), async (req, res) => {
-  console.log('✅ POST /register hit');
-  console.log('Body:', req.body);
-  console.log('File:', req.file);
+  console.log('✅ POST /register hit'); // Add this
+  console.log('Body:', req.body); // Add this
+  console.log('File:', req.file); // Add this
 
   try {
-    const { fullName, email, mobile, college } = req.body;
-    email = email.trim().toLowerCase();
+    const { fullName, mobile, college } = req.body;
+const email = req.body.email.trim().toLowerCase(); // ✅ OK
+
+
     const collegeId = req.file ? req.file.filename : '';
 
     const existingUser = await Appointment.findOne({ email });
