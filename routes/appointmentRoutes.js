@@ -15,6 +15,7 @@ router.post('/register', upload.single('collegeId'), async (req, res) => {
   console.log('✅ POST /register hit'); // Add this
   console.log('Body:', req.body); // Add this
   console.log('File:', req.file); // Add this
+   console.log("📥 Received appointment registration form.");
 
   try {
     const { fullName, mobile, college } = req.body;
